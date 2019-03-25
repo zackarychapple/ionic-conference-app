@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
+
+load("@npm_angular_bazel//:index.bzl", "ng_module")
+
+sass_binary(
+    name = "map_scss",
+    src = "map.scss",
+)
+
+ng_module(
+    name = "map_module_ts",
+    srcs = ["../../../../../ionic-conference-app/src/app/pages/map/map.module.ts","../../../../../ionic-conference-app/src/app/pages/map/map.ts","../../../../../ionic-conference-app/src/app/pages/map/map-routing.module.ts","../../../../../ionic-conference-app/src/app/providers/conference-data.ts"],
+    assets = ["../../../../../ionic-conference-app/src/app/pages/map/map.html",":map_scss"],
+    deps = ["@npm//@types","@npm//@angular/platform-browser","@npm//@angular/core","@npm//@angular/common","@npm//@ionic/angular","@npm//@angular/router"],
+)

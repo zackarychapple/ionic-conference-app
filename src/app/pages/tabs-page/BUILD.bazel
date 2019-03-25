@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@npm_angular_bazel//:index.bzl", "ng_module")
+
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
+
+ng_module(
+    name = "tabs-page_module_ts",
+    srcs = ["../../../../../ionic-conference-app/src/app/pages/tabs-page/tabs-page.module.ts","../../../../../ionic-conference-app/src/app/pages/tabs-page/tabs-page.ts","../../../../../ionic-conference-app/src/app/pages/tabs-page/tabs-page-routing.module.ts","../../../../../ionic-conference-app/src/app/pages/schedule/schedule.ts"],
+    assets = ["../../../../../ionic-conference-app/src/app/pages/tabs-page/tabs-page.html"],
+    deps = ["//src/app/pages/about:about_module_ts","//src/app/pages/map:map_module_ts","//src/app/pages/schedule:schedule_module_ts","//src/app/pages/session-detail:session-detail_module_ts","//src/app/pages/speaker-detail:speaker-detail_module_ts","//src/app/pages/speaker-list:speaker-list_module_ts","@npm//@types","@npm//@angular/platform-browser","@npm//@angular/core","@npm//@angular/common","@npm//@ionic/angular","@npm//@angular/router","@npm//@angular/forms"],
+)
+
+sass_binary(
+    name = "tabs-page_scss",
+    src = "tabs-page.scss",
+)

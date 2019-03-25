@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
+
+load("@npm_angular_bazel//:index.bzl", "ng_module")
+
+sass_binary(
+    name = "login_scss",
+    src = "login.scss",
+)
+
+ng_module(
+    name = "login_module_ts",
+    srcs = ["../../../../../ionic-conference-app/src/app/pages/login/login.module.ts","../../../../../ionic-conference-app/src/app/pages/login/login.ts","../../../../../ionic-conference-app/src/app/pages/login/login-routing.module.ts","../../../../../ionic-conference-app/src/app/providers/user-data.ts","../../../../../ionic-conference-app/src/app/interfaces/user-options.ts"],
+    assets = ["../../../../../ionic-conference-app/src/app/pages/login/login.html",":login_scss"],
+    deps = ["@npm//@types","@npm//@angular/platform-browser","@npm//@angular/core","@npm//@angular/common","@npm//@angular/forms","@npm//@ionic/angular","@npm//@angular/router"],
+)

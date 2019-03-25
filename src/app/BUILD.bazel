@@ -1,0 +1,22 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
+
+load("@npm_angular_bazel//:index.bzl", "ng_module")
+
+sass_binary(
+    name = "app_component_scss",
+    src = "app.component.scss",
+)
+
+ng_module(
+    name = "app_module_ts",
+    srcs = ["../../../ionic-conference-app/src/app/app.module.ts","../../../ionic-conference-app/src/app/app-routing.module.ts","../../../ionic-conference-app/src/app/app.component.ts","../../../ionic-conference-app/src/environments/environment.ts","../../../ionic-conference-app/src/app/providers/user-data.ts","../../../ionic-conference-app/src/app/providers/check-tutorial.service.ts"],
+    assets = ["../../../ionic-conference-app/src/app/app.component.html",":app_component_scss"],
+    deps = ["@npm//@types","@npm//@angular/platform-browser","@npm//@angular/common/http","@npm//@angular/core","@npm//@ionic-native/in-app-browser/ngx","@npm//@ionic-native/splash-screen/ngx","@npm//@ionic-native/status-bar/ngx","@npm//@ionic/angular","@npm//@ionic/storage","@npm//@angular/service-worker","@npm//@angular/router"],
+)
+
+sass_binary(
+    name = "app_scss",
+    src = "app.scss",
+)

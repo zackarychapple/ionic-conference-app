@@ -1,0 +1,17 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
+
+load("@npm_angular_bazel//:index.bzl", "ng_module")
+
+sass_binary(
+    name = "session-detail_scss",
+    src = "session-detail.scss",
+)
+
+ng_module(
+    name = "session-detail_module_ts",
+    srcs = ["../../../../../ionic-conference-app/src/app/pages/session-detail/session-detail.module.ts","../../../../../ionic-conference-app/src/app/pages/session-detail/session-detail.ts","../../../../../ionic-conference-app/src/app/pages/session-detail/session-detail-routing.module.ts","../../../../../ionic-conference-app/src/app/providers/conference-data.ts","../../../../../ionic-conference-app/src/app/providers/user-data.ts"],
+    assets = ["../../../../../ionic-conference-app/src/app/pages/session-detail/session-detail.html",":session-detail_scss"],
+    deps = ["@npm//@types","@npm//@angular/platform-browser","@npm//@angular/core","@npm//@angular/common","@npm//@ionic/angular","@npm//@angular/router"],
+)
